@@ -1,55 +1,74 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Interfaz CSS Generator</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylize </title>
+    <link rel="stylesheet" href="Styles/grid.css">
+    <link rel="stylesheet" href="Styles/types.css">
+    <link rel="stylesheet" href="Styles/forms.css">
+    <link rel="stylesheet" href="Styles/general.css">
+    <link rel="icon" type="image/png" href="Images/stylizelogo.svg">
+
+    <style>
+        body {
+            box-sizing: border-box;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 1s;
+            opacity: 0;
+            padding-left: 40px;
+            padding-right: 40px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            transform: translate(0px, 200px);
+            height: 110vh;
+        }
+    </style>
 </head>
-<body>
-  <div class="main-container">
-    <div class="preview-container">
-      <div class="preview-shape"></div>
-      <div class="code-box">
-        <h2>Código</h2>
-        <pre>
-border-radius: 540px 540px 5335px 4550px;
-background-color: rgba(0, 0, 0, 0.64);
-backdrop-filter: blur(42px);
-box-shadow: 0px 0px 0px rgba(208,103,103,1);
-transition: all 0.443s cubic-bezier(0,0,0,0);
-        </pre>
-        <a href="#" class="copy-btn">Copy</a>
-      </div>
+<script src="Scripts/scriptLoader.js"></script>
+<body onload="LoadPage()" id="body">
+    <img id="vectorFixed" src="Images/VectorDesigner.svg" class="vecDes">
+    <div class="HorizontalLayout w100 hh95 center space-between">
+        <div class="VerticalLayout gap10 br-20 w30 hauto padding-top-20 padding-bottom-20 top-center bgbl">
+            <div class="reddit-mono-500 fs-20 type-white">
+                Código
+            </div>
+            <div class="reddit-mono-500 fs-13 type-white">
+                <span id="code">
+                    
+                </span>
+            </div>
+            <button class="btnLink" onclick="copyColor()">
+                Copy
+            </button>
+            <script>
+            function copyColor() {  
+                var codes = document.getElementById("code").innerText;
+                var aux = document.createElement("textarea");
+                aux.value = codes;
+                document.body.appendChild(aux);
+                aux.select();
+                document.execCommand("copy");
+                document.body.removeChild(aux);
+            }
+
+            </script>
+        </div>
+        <div class="object" id="object">
+        </div>
+        <div class="VerticalLayout gap10 br-20 w25 hauto padding-top-20 top-center bgbl">
+            <div class="HorizontalLayout bgw br-12">
+                <input type="radio" checked class="radio" name="optionDesign" id="design">
+                <label class="labelRadio" for="design">Model</label>
+            </div>
+            <iframe src="formDesign.html" frameborder="0" class="hh100"></iframe>
+        </div>
+
     </div>
 
-    <div class="panel">
-      <button class="model-btn">Model</button>
-
-      <div class="input-group">
-        <label>Background</label>
-        <input type="color" value="#000000">
-      </div>
-
-      <div class="input-group">
-        <label>Opacity</label>
-        <input type="range" min="0" max="100" value="64">
-      </div>
-
-      <div class="input-group">
-        <label>Blur (px)</label>
-        <input type="number" value="42">
-      </div>
-
-      <div class="input-group">
-        <label>Shadow Color</label>
-        <input type="color" value="#d06767">
-      </div>
-
-      <div class="input-group">
-        <label>Tiempo (s)</label>
-        <input type="text" value="0.443">
-      </div>
-    </div>
-  </div>
 </body>
 </html>

@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Styles/grid.css">
+    <link rel="stylesheet" href="Styles/types.css">
+    <link rel="stylesheet" href="Styles/forms.css">
+    <link rel="stylesheet" href="Styles/general.css">
+</head>
+<body>
+    <div class="VerticalLayout padding-20 w100 hauto gap10">
+
+        <div class="HorizontalLayout gap20 space-between center">
+            <div class="VerticalLayout gap10">
+                <div class="HorizontalLayout gap5">
+                    <img src="Icons/rad1.svg">
+                    <input type="number" name="" placeholder="0" onkeyup="obtenerRadius()" id="rad1" class="normal" value="0">
+                </div>
+                <div class="HorizontalLayout gap5">
+                    <img src="Icons/rad2.svg">
+                    <input type="number" name="" placeholder="0" onkeyup="obtenerRadius()" id="rad4" class="normal" value="0">
+                </div>
+            </div>
+            <input type="checkbox" name="radioBorders" class="checkbox" id="radioBorder" onclick="obtenerRadius()">
+            <label for="radioBorder" class="labelCheck"><img src="Icons/fixed.svg"></label>
+            <div class="VerticalLayout gap10">
+                <div class="HorizontalLayout gap5">
+                    <input type="number" name="" placeholder="0" onkeyup="obtenerRadius()" id="rad2" class="normal" value="0">
+                    <img src="Icons/rad3.svg">
+                </div>
+                <div class="HorizontalLayout gap5">
+                    <input type="number" name="" placeholder="0" onkeyup="obtenerRadius()" id="rad3" class="normal" value="0">
+                    <img src="Icons/rad4.svg">
+                </div>
+            </div>
+        </div>
+        <div class="HorizontalLayout gap40 center space-between">
+            <div class="reddit-mono-500 fs-17 type-white">
+                Background
+            </div>
+            <button class="btnLink" onclick="copyColor()">
+                Copy
+            </button>
+            <script>
+                function copyColor() {
+                    var aux = document.createElement("input");
+                    aux.setAttribute("value", document.getElementById("colorSelected").innerHTML);
+                    document.body.appendChild(aux);
+                    aux.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(aux);
+                }
+            </script>
+        </div>
+        <input type="color" class="colorInput" id="colorInput" onchange="obtenerColor()">
+        <label for="colorInput" id="labelColor" class="labelColorInput"><span id="colorSelected">#FD4D4D</span></label>
+        <div class="HorizontalLayout gap40 center space-between">
+            <div class="reddit-mono-500 fs-17 type-white">
+                Opacity
+            </div>
+            <div class="HorizontalLayout gap10">
+                <input type="number" name="" id="opacity" class="normal" onkeyup="obtenerColor()" value="100">
+                <div class="reddit-mono-500 fs-17 type-white">
+                    %
+                </div>
+            </div>
+        </div>
+        <div class="HorizontalLayout gap40 center space-between">
+            <div class="reddit-mono-500 fs-17 type-white">
+                Blur
+            </div>
+            <div class="HorizontalLayout gap10">
+                <input type="number" name="" id="blur" class="normal" onkeyup="obtenerColor()" value="0">
+                <div class="reddit-mono-500 fs-17 type-white">
+                    px
+                </div>
+            </div>
+        </div>
+        <div class="reddit-mono-500 fs-17 type-white">
+            Shadow
+        </div>
+        <div class="HorizontalLayout gap40 center space-between">
+            <div class="HorizontalLayout gap20 space-between">
+                <div class="HorizontalLayout gap10">
+                    <div class="reddit-mono-500 fs-17 type-white">
+                        X
+                    </div>
+                    <input type="number" name="" id="xShadow" class="normal" onkeyup="obtenerShadow()" value="0">
+                </div>
+
+                <div class="HorizontalLayout gap10">
+                    <div class="reddit-mono-500 fs-17 type-white">
+                        Y
+                    </div>
+                    <input type="number" name="" id="yShadow" class="normal" onkeyup="obtenerShadow()" value="0">
+                </div>
+            </div>
+        </div>
+        <div class="reddit-mono-500 fs-17 type-white">
+            Expansión y opacidad
+        </div>
+        <div class="HorizontalLayout gap40 center space-between">
+            <div class="HorizontalLayout gap20 space-between">
+                <div class="HorizontalLayout gap10">
+                    <img src="Icons/expansion.svg">
+                    <input type="number" name="" id="expandShadow" class="normal" onkeyup="obtenerShadow()" value="0">
+                </div>
+
+                <div class="HorizontalLayout gap10">
+                    <img src="Icons/opacity.svg">
+                    <input type="number" name="" id="opcaityShadow" class="normal" onkeyup="obtenerShadow()" value="100">
+                </div>
+            </div>
+        </div>
+        <div class="reddit-mono-500 fs-17 type-white">
+            Color Shadow
+        </div>
+        <input type="color" class="colorInput" id="colorInputShadow" onchange="obtenerColorShadow()">
+        <label style="background-color: #000000;" for="colorInputShadow" id="labelColorShadow" class="labelColorInput"><span id="colorShadoow">#000000</span></label>
+
+        <div class="reddit-mono-500 fs-17 type-white">
+            Cubic bezier
+        </div>
+        
+        <div class="HorizontalLayout gap10">
+            <div class="reddit-mono-500 fs-17 type-white">
+                Tiempo
+            </div>
+            <input type="number" name="" id="time" class="normal" onkeyup="obtenerCubic()" value="0">
+            <div class="reddit-mono-500 fs-17 type-white">
+                s
+            </div>
+        </div>
+        <div class="HorizontalLayout gap40 center space-between">
+            <div class="HorizontalLayout gap20 space-between">
+                <div class="HorizontalLayout gap10">
+                    <div class="reddit-mono-500 fs-17 type-white">
+                        X1
+                    </div>
+                    <input type="number" name="" id="X1" class="normal" onkeyup="obtenerCubic()" value="0">
+                </div>
+
+                <div class="HorizontalLayout gap10">
+                    <div class="reddit-mono-500 fs-17 type-white">
+                        X2
+                    </div>
+                    <input type="number" name="" id="X2" class="normal" onkeyup="obtenerCubic()" value="0">
+                </div>
+            </div>
+        </div>
+        <div class="HorizontalLayout gap40 center space-between">
+            <div class="HorizontalLayout gap20 space-between">
+                <div class="HorizontalLayout gap10">
+                    <div class="reddit-mono-500 fs-17 type-white">
+                        Y1
+                    </div>
+                    <input type="number" name="" id="Y1" class="normal" onkeyup="obtenerCubic()" value="0">
+                </div>
+
+                <div class="HorizontalLayout gap10">
+                    <div class="reddit-mono-500 fs-17 type-white">
+                        Y1
+                    </div>
+                    <input type="number" name="" id="Y2" class="normal" onkeyup="obtenerCubic()" value="0">
+                </div>
+            </div>
+        </div>
+        <div class="reddit-mono-500 fs-17 type-white">
+            Prueba de transition
+        </div>
+        <div class="HorizontalLayout gap40 center space-between">
+            <button class="btnTransparent" onclick="moveToUp()">
+                <img src="Icons/up.svg">
+            </button>
+            <button class="btnTransparent" onclick="moveToLeft()">
+                <img src="Icons/left.svg">
+            </button>
+            <button class="btnTransparent" onclick="moveToRight()">
+                <img src="Icons/right.svg">
+            </button>
+            <button class="btnTransparent" onclick="moveToDown()">
+                <img src="Icons/down.svg">
+            </button>
+        </div>
+        <input type="checkbox" name="radioBorders" class="checkbox" id="ocultShape" checked onclick="hideShape()">
+        <label for="ocultShape" class="labelCheck"><span id="textHideShape">Show Shape</span></label>
+    </div>
+        <script>
+            var object = parent.document.getElementById("object");
+            var code = parent.document.getElementById("code");
+            var radius = "";
+            var bgc = "";
+            var blurC = "";
+            var cubic = "";
+            var shadow = "";
+            function hideShape() {
+                var textHideShape = document.getElementById("textHideShape");
+                var ocultShape = document.getElementById("ocultShape");
+                var vectorFixed = parent.document.getElementById("vectorFixed");
+                if (ocultShape.checked) {
+                    textHideShape.innerHTML = "Show shape";
+                    vectorFixed.style.bottom = "-150px";
+                    vectorFixed.style.left = "-100px";
+
+                } else {
+                    textHideShape.innerHTML = "Show shape";
+                    vectorFixed.style.bottom = "calc(-150px - 80%)";
+                    vectorFixed.style.left = "calc(-100px - 80%)";
+                }
+            }
+            function obtenerRadius() {
+                var radioBorders = document.getElementById("radioBorder");
+                var rad1 = document.getElementById("rad1").value;
+                var rad2 = document.getElementById("rad2").value;
+                var rad3 = document.getElementById("rad3").value;
+                var rad4 = document.getElementById("rad4").value;
+                if (radioBorders.checked) {
+                    radius = "border-radius: " + rad1 + "px;";
+                    object.style.borderRadius = rad1 + "px";
+                } else {
+                    object.style.borderRadius = rad1 + "px " + rad2 + "px " + rad3 + "px " + rad4 + "px ";
+                    radius = "border-radius: " + rad1 + "px " + rad2 + "px " + rad3 + "px " + rad4 + "px;";
+                }
+                updateCode();
+            }
+            function updateCode() {
+                codes = radius + "<br>" + bgc + "<br>" + blurC +  "<br>" + shadow + "<br>" + cubic;
+                code.innerHTML = codes;
+            }
+            function obtenerColor() {
+                var colorInput = document.getElementById("colorInput");
+                var colorSelected = document.getElementById("colorSelected");
+                var labelColor = document.getElementById("labelColor");
+                var blur = document.getElementById("blur").value;
+                var opacidad = document.getElementById("opacity").value;
+                var colorInput = document.getElementById("colorInput");
+  
+                var colorHexadecimal = colorInput.value;
+                object.style.backdropFilter = "blur(" + blur + "px)";  
+                blurC = "backdrop-filter: blur(" + blur + "px);";  
+                var r = parseInt(colorHexadecimal.substring(1, 3), 16);
+                var g = parseInt(colorHexadecimal.substring(3, 5), 16);
+                var b = parseInt(colorHexadecimal.substring(5, 7), 16);
+                object.style.backgroundColor =  "rgba(" + r + ", " + g + ", " + b + ", " + opacidad/100 + ")";
+                bgc = "background-color: rgba(" + r + ", " + g + ", " + b + ", " + opacidad/100 + ");";
+                var colorSeleccionado = colorInput.value;
+                colorSelected.innerHTML=colorSeleccionado;
+                labelColor.style.backgroundColor = colorSeleccionado;
+
+                updateCode();
+            }
+            function obtenerColorShadow() {
+                var colorInputShadow = document.getElementById("colorInputShadow");
+                var colorShadoow = document.getElementById("colorShadoow");
+                var labelColorShadow = document.getElementById("labelColorShadow");
+  
+                var colorHexadecimal = colorInputShadow.value;
+                var r = parseInt(colorHexadecimal.substring(1, 3), 16);
+                var g = parseInt(colorHexadecimal.substring(3, 5), 16);
+                var b = parseInt(colorHexadecimal.substring(5, 7), 16);
+                var colorSeleccionado = colorInputShadow.value;
+                colorShadoow.innerHTML=colorSeleccionado;
+                labelColorShadow.style.backgroundColor = colorSeleccionado;
+                obtenerShadow();
+
+            }
+            function obtenerShadow() {
+                var x = document.getElementById("xShadow").value;
+                var y = document.getElementById("yShadow").value;
+                var expand = document.getElementById("expandShadow").value;
+                var opacityShadow = document.getElementById("opcaityShadow").value;
+                var colorShadow = document.getElementById("colorShadow");
+                var colorInputShadow = document.getElementById("colorInputShadow");
+                
+                var colorHexadecimal = colorInputShadow.value;
+                var r = parseInt(colorHexadecimal.substring(1, 3), 16);
+                var g = parseInt(colorHexadecimal.substring(3, 5), 16);
+                var b = parseInt(colorHexadecimal.substring(5, 7), 16);
+                object.style.boxShadow =  x + "px " + y + "px " + expand + "px " + "rgba(" + r + "," + g + "," + b + "," + (opacityShadow / 100) + ")";
+                shadow = "box-shadow: " + x + "px " + y + "px " + expand + "px " + "rgba(" + r + "," + g + "," + b + "," + (opacityShadow / 100) + ");";
+                updateCode();
+            }
+            function obtenerCubic() {
+                var x1 = document.getElementById("X1").value;
+                var x2 = document.getElementById("X2").value;
+                var y1 = document.getElementById("Y1").value;
+                var y2 = document.getElementById("Y2").value;
+                var time = document.getElementById("time").value;
+
+                object.style.transition = "transform " + time + "s " + "cubic-bezier(" + x1 + "," + x2 + "," + y1 + "," + y2 + "), border-radius .35s cubic-bezier(0.180, -0.90, 0.00, 3), background-color .5s, backdrop-filter .5s, box-shadow .35s cubic-bezier(0.180, -0.90, 0.00, 3)";
+                cubic = "transition: all " + time + "s " + "cubic-bezier(" + x1 + "," + x2 + "," + y1 + "," + y2 + ");";
+                updateCode()
+            }
+            function moveToUp() {
+                object.style.transform = "translate(0,-100px)";
+            }
+            function moveToLeft() {
+                object.style.transform = "translate(-100px,0)";
+            }
+            function moveToRight() {
+                object.style.transform = "translate(100px,0)";
+            }
+            function moveToDown() {
+                object.style.transform = "translate(0,100px)";
+            }
+        </script>
+</body>
+</html>

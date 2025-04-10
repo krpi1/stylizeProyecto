@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');.radioMenu {
+    display: none;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    
+}
+.labelRadioMenu {
+    font-family: 'Poppins';
+    color: rgb(78, 78, 78);
+    font-size: 16px;
+    position: relative;
+    font-weight: 500;
+}
+.labelRadioMenu::before {
+    content: '';
+    width: 0%;
+    position: absolute;
+    top: 100%;
+    transition: all .5s;
+    left: 50%;
+    height: 5px;
+    background-color: #FD4D4D;
+    border-radius: 10px;
+    border-radius: 0 10px 10px 0;
+}
+.labelRadioMenu::after {
+    content: '';
+    width: 0%;
+    position: absolute;
+    top: 100%;
+    transition: all .5s;
+    right: 50%;
+    height: 5px;
+    background-color: #FD4D4D;
+    border-radius: 10px 0 0 10px;
+}
+.labelRadioMenu:hover::after {
+    width: 50%;
+}
+.labelRadioMenu:hover::before {
+    width: 50%;
+}
+.contentInspiratiosn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 33px 45px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    padding: 40px;
+}
+.inspiration {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 27px;
+    width: 30%;
+    
+    height: 200px;
+    overflow: hidden;
+}
+.inspiration img {
+    width: 105%;
+    transition: all 0.55s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.vecDes {
+    position: fixed;
+    bottom: -150px;
+    left: -100px;
+    width: 70%;
+    z-index: -100;
+    transition: all .55s;
+}
+.buttonContinue {
+    background-color: white;
+    font-family: poppins;
+    border-radius: 17px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+    align-items: center;
+    font-size: 18px;
+    padding: 10px;
+}
+.buttonContinue img {
+    width: 30px;
+}
+.colorInput {
+    display: none;
+}
+.btnLink {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: underline;
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    transition: all .55s cubic-bezier(0.68,-0.55,2.26,1.55);
+}
+.btnLink:active {
+    transform: scale(1.1);
+    color: #64a7ff;
+}
+.labelColorInput {
+    width: 100%;
+    background-color: #FD4D4D;
+    color: white;
+    font-family: poppins;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: all .5s;
+}
+.inspiration:hover img {
+    width: 130%;
+}
+.inspiration:active img {
+    width: 180%;
+}
+
+.radioMenu:checked + .labelRadioMenu {
+    color: black;
+    transition: all .4s;
+}
+.radioMenu:checked + .labelRadioMenu::after {
+    width: 50%;
+    background-color: #cecece;
+}
+.radioMenu:checked + .labelRadioMenu::before {
+    width: 50%;
+    background-color: #cecece;
+}
+.radio {
+    display: none;
+}
+.labelRadio {
+    font-family: 'Poppins';
+    color: black;
+    font-size: 16px;
+    width: 100px;
+    text-align: center;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: #fff;
+    transition: all .5s;
+}
+
+.radio:checked + .labelRadio {
+    background-color: #FF5656;
+    color: white;
+}
+.checkbox {
+    display: none;
+}
+.labelCheck {
+    font-family: 'Poppins';
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: #fff;
+    transition: all .5s;
+}
+
+.checkbox:checked + .labelCheck {
+    background-color: #FF5656;
+    color: white;
+}
+
+.normal {
+    font-size: 13px;
+    font-family: poppins;
+    background-color: #fff;
+    outline: 3px solid transparent;
+    border: none;
+    transition: all .5s;
+    border-radius: 10px;
+    padding: 5px 0px;
+    text-align: center;
+    width: 100%;
+}
+.normal:focus {
+    outline: 3px solid #1971e3;
+}
+.btnTransparent {
+    background: none;
+    outline: none;
+    border: none;
+    transition: all .5s;
+}
+.btnTransparent:active {
+    transform: scale(1.8);
+}

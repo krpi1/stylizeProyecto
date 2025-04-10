@@ -1,0 +1,37 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+html::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+    background-color: #ffffff00;
+}
+html::-webkit-scrollbar-thumb {
+    background: #212121;
+    border-radius: 10px;
+}
+.imageMenu {
+    width: 100px;
+    position: fixed;
+    top: calc(50% - 17.5px);
+    left: 30px;
+    transition: all .5s;
+}
+.imageMenu:hover {
+    transform: scale(1.1);
+}
+.imageMenu:active {
+    transform: scale(.8);
+}
+.object {
+    width: 300px;
+    height: 300px;
+    background-color: #FD4D4D;
+    border-radius: 0px;
+    transition: border-radius .35s cubic-bezier(0.180, -0.90, 0.00, 3), 
+        background-color .5s,
+        backdrop-filter .5s,
+        box-shadow .35s cubic-bezier(0.180, -0.90, 0.00, 3);
+}

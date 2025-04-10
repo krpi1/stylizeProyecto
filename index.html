@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Interfaz CSS Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="preview-container">
+      <div class="preview-shape"></div>
+      <div class="code-box">
+        <h2>Código</h2>
+        <pre>
+border-radius: 540px 540px 5335px 4550px;
+background-color: rgba(0, 0, 0, 0.64);
+backdrop-filter: blur(42px);
+box-shadow: 0px 0px 0px rgba(208,103,103,1);
+transition: all 0.443s cubic-bezier(0,0,0,0);
+        </pre>
+        <a href="#" class="copy-btn">Copy</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <button class="model-btn">Model</button>
+
+      <div class="input-group">
+        <label>Background</label>
+        <input type="color" value="#000000">
+      </div>
+
+      <div class="input-group">
+        <label>Opacity</label>
+        <input type="range" min="0" max="100" value="64">
+      </div>
+
+      <div class="input-group">
+        <label>Blur (px)</label>
+        <input type="number" value="42">
+      </div>
+
+      <div class="input-group">
+        <label>Shadow Color</label>
+        <input type="color" value="#d06767">
+      </div>
+
+      <div class="input-group">
+        <label>Tiempo (s)</label>
+        <input type="text" value="0.443">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
